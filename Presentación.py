@@ -100,3 +100,48 @@ with open("carta_motivacion.pdf", "rb") as pdf_file:
     carta_presentacion = pdf_file.read()
 st.download_button("Descargar Carta de Presentacion", data=carta_presentacion, file_name='Carta de Presentacion.pdf', mime='application/pdf')
 
+# Contacto
+st.markdown('<div class="contact-me">', unsafe_allow_html=True)
+st.markdown('<div class="section-title">📨 Contacta conmigo!</div>', unsafe_allow_html=True)
+
+contact_form = """
+<style>
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+input, textarea, button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+input:focus, textarea:focus {
+    border-color: #6a1b9a;
+    outline: none;
+}
+button {
+    background-color: #6a1b9a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+button:hover {
+    background-color: #4a148c;
+}
+</style>
+<form action="https://formsubmit.co/nicovegamunoz1@gmail.com" method="POST">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="text" name="name" placeholder="Tu nombre" required>
+    <input type="email" name="email" placeholder="Tu email" required>
+    <textarea name="message" placeholder="Tu mensaje aquí" required></textarea>
+    <button type="submit">Enviar</button>
+</form>
+"""
+
+st.markdown(contact_form, unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
