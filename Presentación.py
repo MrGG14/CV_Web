@@ -1,43 +1,34 @@
 import streamlit as st
+import requests
+from streamlit_lottie import st_lottie
 
 # Configurar el ancho de la página
-# st.set_page_config(layout="wide")
+st.set_page_config(layout="wide")
+# Agregar estilos personalizados para el sidebar
+# Add a selectbox to the sidebar:
+st.markdown("""
+<style>
+    [data-testid=stSidebar] {
+        background-color: #6A0083;
+    }
+</style>
+""", unsafe_allow_html=True)
 
+def gradient(color1, color2, color3, content1, content2):
+    st.markdown(f'<h1 style="text-align:center;background-image: linear-gradient(to right,{color1}, {color2});font-size:60px;border-radius:2%;">'
+                f'<span style="color:{color3};">{content1}</span><br>'
+                f'<span style="color:white;font-size:17px;">{content2}</span></h1>', 
+                unsafe_allow_html=True)
 
-# # Añadir el fondo de pantalla usando CSS
+with st.container():
+    col1,col2 = st.columns([8,3])
 
-# page_element = """
-# <style>
-# [data-testid="stAppViewContainer"] {
-#   background-image: url("https://digitalpm.es/wp-content/uploads/2017/11/3881153-big-data-wallpaper.jpg");
-#   background-size: cover;
-#   background-attachment: fixed;
-# }
-# .content-box {
-#   background-color: rgba(255, 255, 255, 0.8);
-#   padding: 20px;
-#   border-radius: 10px;
-#   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-#   margin: 20px;
-# }
-# </style>
-# """
+full_name = 'Nicolás Vega Muñoz'
+with col1:
+    gradient('#FFD4DD','#000395','e0fbfc',f"Bienvenido! Soy {full_name}👋", 'Data Scientist')
+    st.write("")
+    # st.write(info['About'])
 
-# st.markdown(page_element, unsafe_allow_html=True)
-# st.markdown('<div class="content-box">', unsafe_allow_html=True)
-
-# Encabezado con foto de perfil
-st.title('Nicolás Vega Muñoz')
-st.write("## **Data Scientist**")
-st.image('img.jpeg', width=170)
-
-# Información de contacto
-
-st.write("**nicovegamunoz1@gmail.com**")
-st.write('**(+34) 654 27 29 28**')
-st.write('**Madrid, España**')
-st.write('[**GitHub**](https://github.com/MrGG14)')
-st.write('[**LinkedIn**](https://www.linkedin.com/in/nicolas-vega-10424021b/)')
 
 
 # Sobre Mi
@@ -47,6 +38,37 @@ st.write('Me considero una persona responsable, social, organizada y sobre todo 
 st.write("""
     Estoy motivado y listo para aplicar mis conocimientos en un entorno empresarial que me permita crecer profesionalmente.
 """)
+
+def load_lottieurl(url: str):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+# loading assets
+lottie_gif = load_lottieurl("https://assets9.lottiefiles.com/packages/lf20_x17ybolp.json")
+python_lottie = load_lottieurl("https://assets6.lottiefiles.com/packages/lf20_2znxgjyt.json")
+my_sql_lottie = load_lottieurl("https://assets4.lottiefiles.com/private_files/lf30_w11f2rwn.json")
+git_lottie = load_lottieurl("https://assets9.lottiefiles.com/private_files/lf30_03cuemhb.json")
+github_lottie = load_lottieurl("https://assets8.lottiefiles.com/packages/lf20_6HFXXE.json")
+docker_lottie = load_lottieurl("https://assets4.lottiefiles.com/private_files/lf30_35uv2spq.json")
+
+
+with st.container():
+    st.subheader('⚒️ Herramientas')
+    col1, col2, col3, col4, col5 = st.columns([1, 1, 1, 1, 1])
+    with col1:
+        st_lottie(python_lottie, height=70,width=70, key="python", speed=2.5)
+    with col2:
+        st_lottie(docker_lottie,height=70,width=70, key="docker", speed=2.5)
+
+    with col3:
+        st_lottie(my_sql_lottie,height=70,width=70, key="mysql", speed=2.5)
+    with col4:
+        st_lottie(git_lottie,height=70,width=70, key="git", speed=2.5)
+    with col5:
+        st_lottie(github_lottie,height=50,width=50, key="github", speed=2.5)
+
 # Oferta de Empleo
 st.write("\n")
 st.write("## Oferta de empleo Hyundai")
@@ -100,48 +122,3 @@ with open("carta_motivacion.pdf", "rb") as pdf_file:
     carta_presentacion = pdf_file.read()
 st.download_button("Descargar Carta de Presentacion", data=carta_presentacion, file_name='Carta de Presentacion.pdf', mime='application/pdf')
 
-# Contacto
-st.markdown('<div class="contact-me">', unsafe_allow_html=True)
-st.markdown('<div class="section-title">📨 Contacta conmigo!</div>', unsafe_allow_html=True)
-
-contact_form = """
-<style>
-form {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-}
-input, textarea, button {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-}
-input:focus, textarea:focus {
-    border-color: #6a1b9a;
-    outline: none;
-}
-button {
-    background-color: #6a1b9a;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-button:hover {
-    background-color: #4a148c;
-}
-</style>
-<form action="https://formsubmit.co/nicovegamunoz1@gmail.com" method="POST">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="text" name="name" placeholder="Tu nombre" required>
-    <input type="email" name="email" placeholder="Tu email" required>
-    <textarea name="message" placeholder="Tu mensaje aquí" required></textarea>
-    <button type="submit">Enviar</button>
-</form>
-"""
-
-st.markdown(contact_form, unsafe_allow_html=True)
-st.markdown('</div>', unsafe_allow_html=True)
