@@ -3,13 +3,7 @@ import streamlit as st
 st.title("Forecasting de Series Temporales para Dummies")
 
 
-st.markdown("""
-<style>
-    [data-testid=stSidebar] {
-        background-color: #6A0083;
-    }
-</style>
-""", unsafe_allow_html=True)
+
 
 st.subheader("Introducción")
 st.write("""

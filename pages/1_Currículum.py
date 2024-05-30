@@ -2,14 +2,8 @@ import streamlit as st
 
 
 # Configurar el ancho de la página
-# st.set_page_config(layout="wide")
-st.markdown("""
-<style>
-    [data-testid=stSidebar] {
-        background-color: #6A0083;
-    }
-</style>
-""", unsafe_allow_html=True)
+st.set_page_config(layout="wide")
+
 # Encabezado con foto de perfil
 st.write("# Nicolás Vega Muñoz")
 st.write("## **Data Scientist**")
@@ -17,12 +11,11 @@ st.image('img.jpeg', width=170)
 
 # Información de contacto
 
-# Información de contacto
-st.write("📧 [**Correo**](mailto:nicovegamunoz1@gmail.com)")
-st.write("📱 **(+34) 654 27 29 28**")
-st.write("🔗 [**GitHub**](https://github.com/MrGG14)")
-st.write("🔗 [**LinkedIn**](https://www.linkedin.com/in/nicolas-vega-10424021b/)")
-st.write("📍 **Madrid, España**")
+st.write("**nicovegamunoz1@gmail.com**")
+st.write('**(+34) 654 27 29 28**')
+st.write('[**GitHub**](https://github.com/MrGG14)')
+st.write('[**LinkedIn**](https://www.linkedin.com/in/nicolas-vega-10424021b/)')
+st.write('**Madrid, España**')
 
 
 # Experiencia Laboral
@@ -38,29 +31,18 @@ st.write("- **Forecast del precio SPOT en el mercado eléctrico español con red
 st.write("""
     Predicción de series temporales utilizando machine learning (CNN, LSTM) y modelos de vanguardia como Temporal Fusion Transformers (TFT).
 """)
-st.link_button("¡Ver en Github!", "https://github.com/MrGG14/Electricity-Price-Forecast-NN")
-
-
 st.write("- **SureBets Strategy Automatization**")
 st.write("""
     Adquisición de datos desde The Odds API y scraping de casas de apuestas. Automatización de apuestas matemáticamente garantizadas en diversas plataformas de apuestas. Desarrollo de un TelegramBot que obtiene surebets.
 """)
-st.link_button("¡Ver en Github!", "https://github.com/MrGG14/SureBet-Strategy-Automatization")
-
-
 st.write("- **Superstore Membership Conversion Predictor**")
 st.write("""
     Predicción de la probabilidad de que el cliente acepte una nueva oferta de un supermercado, reduciendo costos de marketing y aumentando la tasa de conversión.
 """)
-st.link_button("¡Ver en Github!", "https://github.com/MrGG14/Superstore_Membership_Conversion_Predictor")
-
-
 st.write("- **Content Based Image Retrieval (CBIR)**")
 st.write("""
     Implementación de múltiples sistemas de recuperación de imágenes basados en contenido utilizando descriptores locales y globales de imágenes, como texturas, puntos de interés (SIFT) y Redes Neuronales Convolucionales (CNN).
 """)
-st.link_button("¡Ver en Github!", "https://github.com/MrGG14/CBIR")
-
 
 # Formación
 st.write("## Formación")
